@@ -6,6 +6,10 @@ class TwoStacks{
   public:
     TwoStacks();
     int getArraySize();
+    T pop1();
+    T pop2();
+    T push1();
+    T push2();
   private:
     T _array[MAX_SIZE];
     int _size;
