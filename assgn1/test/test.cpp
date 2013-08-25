@@ -27,7 +27,7 @@ TEST_F(TwoStacksTest, PopTestNormal){
 }
 
 TEST_F(TwoStacksTest, PushFull){
-
+    ASSERT_THROW(s2_.push(0,5), std::overflow_error);
 }
 
 int main(int argc, char **argv){

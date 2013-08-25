@@ -1,6 +1,7 @@
 #ifndef STACKS_ASSGN1_HPP
 #define STACKS_ASSGN1_HPP
 #include<iostream>
+#include<stdexcept>
 #define DEFAULT_SIZE 128
 
 template <class T>
@@ -50,7 +51,7 @@ T TwoStacks<T>::pop(int sn){
 template <class T>
 void TwoStacks<T>::push(int sn, T data){
     if (_pos[1]-_pos[0] <= 0){
-        std::cerr << "Array Full: stack overflow\n";
+        throw std::overflow_error("Array Full: Stack Overflow");
     }else{
         _pos[sn] = (sn==0)?_pos[sn]+1:_pos[sn]-1;
         _array[_pos[sn]] = data;
