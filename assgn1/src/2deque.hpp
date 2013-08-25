@@ -1,10 +1,12 @@
+#ifndef DEQUE_ASSGN_2_HPP
+#define DEQUE_ASSGN_2_HPP
 #include <iostream>
 #define MAX_SIZE 10
 
 template <class T>
-class Deque{
+class MyDeque{
   public:
-    Deque();
+    MyDeque();
     void push(T);
     T pop();
     void inject(T);
@@ -16,39 +18,52 @@ class Deque{
 };
 
 template <class T>
-Deque::Deque(){
+MyDeque<T>::MyDeque(){
     front_ptr = NULL;
     rear_ptr = NULL;
 }
 
 template <class T>
-void Deque::push(T data){
+void MyDeque<T>::push(T data){
     if(front_ptr!=NULL and rear_ptr!=NULL){
         front_ptr--;
-        *front_ptr = data;
     }else{
-        front_ptr = array+=MAX_SIZE;
-        rear_ptr = front_ptr;
+        front_ptr = array;
+        rear_ptr = array;
+        for(int i=0; i<MAX_SIZE;++i){
+            front_ptr++;
+            rear_ptr++;
+        }
     }
+    *front_ptr = data;
 }
 
 template <class T>
-T Deque::pop(){
-    return *front_ptr;
+T MyDeque<T>::pop(){
+    T data = *front_ptr;
+    front_ptr++;
+    return data;
 }
 
 template <class T>
-void Deque::inject(T data){
+void MyDeque<T>::inject(T data){
     if(front_ptr!=NULL and rear_ptr!=NULL){
         rear_ptr++;
-        *rear_ptr = data;
     }else{
-        front_ptr = array+=MAX_SIZE;
-        rear_ptr = front_ptr;
+        front_ptr = array;
+        rear_ptr = array;
+        for(int i=0; i<MAX_SIZE;++i){
+            front_ptr++;
+            rear_ptr++;
+        }
     }
+    *rear_ptr = data;
 }
 
 template <class T>
-T Deque::eject(){
-    return *rear_ptr;
+T MyDeque<T>::eject(){
+    T data = *rear_ptr;
+    rear_ptr--;
+    return data;
 }
+#endif
