@@ -36,7 +36,7 @@ void TwoStacks<T>::initializeArray(){
 }
 
 /* pop() implementation: takes 0 or 1 as integer input and pops the element of
- * the first stack or the second
+ * the first stack or the second respectively
  */
 template <class T>
 T TwoStacks<T>::pop(int sn){
@@ -47,8 +47,12 @@ T TwoStacks<T>::pop(int sn){
 
 template <class T>
 void TwoStacks<T>::push(int sn, T data){
-    _pos[sn] = (sn==0)?_pos[sn]+1:_pos[sn]-1;
-    _array[_pos[sn]] = data;
+    if (_pos[1]-_pos[0] <= 0){
+        std::cerr << "Array Full: stack overflow\n";
+    }else{
+        _pos[sn] = (sn==0)?_pos[sn]+1:_pos[sn]-1;
+        _array[_pos[sn]] = data;
+    }
 }
 
 template <class T>
