@@ -40,8 +40,19 @@ void MyDeque<T>::push(T data){
 
 template <class T>
 T MyDeque<T>::pop(){
-    T data = *front_ptr;
-    front_ptr++;
+    T data;
+    if (!front_ptr == NULL){
+        data = *front_ptr;
+    }else{
+        std::exception e;
+        throw e;
+    }
+    if (front_ptr == rear_ptr){
+        front_ptr = NULL;
+        rear_ptr = NULL;
+    }else{
+        front_ptr++;
+    }
     return data;
 }
 
@@ -62,8 +73,19 @@ void MyDeque<T>::inject(T data){
 
 template <class T>
 T MyDeque<T>::eject(){
-    T data = *rear_ptr;
-    rear_ptr--;
+    T data;
+    if (!rear_ptr == NULL){
+        data = *rear_ptr;
+    }else{
+        std::exception e;
+        throw e;
+    }
+    if (front_ptr == rear_ptr){
+        front_ptr = NULL;
+        rear_ptr = NULL;
+    }else{
+        rear_ptr--;
+    }
     return data;
 }
 #endif
