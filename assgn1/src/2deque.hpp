@@ -22,9 +22,10 @@ Deque::Deque(){
 }
 
 template <class T>
-void Deque::push(T){
+void Deque::push(T data){
     if(front_ptr!=NULL and rear_ptr!=NULL){
         front_ptr--;
+        *front_ptr = data;
     }else{
         front_ptr = array+=MAX_SIZE;
         rear_ptr = front_ptr;
@@ -37,9 +38,10 @@ T Deque::pop(){
 }
 
 template <class T>
-void Deque::inject(T){
+void Deque::inject(T data){
     if(front_ptr!=NULL and rear_ptr!=NULL){
         rear_ptr++;
+        *rear_ptr = data;
     }else{
         front_ptr = array+=MAX_SIZE;
         rear_ptr = front_ptr;
