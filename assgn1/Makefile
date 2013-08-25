@@ -7,3 +7,6 @@ all:
 clean:
 	-cd build && make clean
 	rm -rf build
+
+tests:
+	@cd build && make test

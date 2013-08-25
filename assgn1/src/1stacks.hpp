@@ -1,3 +1,5 @@
+#ifndef STACKS_ASSGN1_HPP
+#define STACKS_ASSGN1_HPP
 #include<iostream>
 #define DEFAULT_SIZE 128
 
@@ -59,10 +61,4 @@ template <class T>
 int TwoStacks<T>::getArraySize(){
     return _size;
 }
-
-// Testing the TwoStacks class
-int main(){
-    TwoStacks<int> s;
-    std::cout << s.getArraySize() << "\n";
-    return 0;
-}
+#endif
