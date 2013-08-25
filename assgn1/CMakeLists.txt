@@ -14,6 +14,6 @@ add_executable(two_stacks_main src/main.cpp)
 target_link_libraries(two_stacks_main two-stacks)
 
 include_directories(src)
-add_executable(test_two_stacks test/test.cpp)
+add_executable(test_two_stacks test/1test.cpp)
 target_link_libraries(test_two_stacks gtest gtest_main pthread)
 add_test(test_two_stacks ${EXECUTABLE_OUTPUT_PATH}/two_stacks_test --verbose)
